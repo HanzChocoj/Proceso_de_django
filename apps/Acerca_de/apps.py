@@ -1,4 +1,4 @@
-from django.apps import AppConfig
+from prueba1.apps import AppConfig
 
 
 class AcercaDeConfig(AppConfig):
