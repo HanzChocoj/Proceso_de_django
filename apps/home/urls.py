@@ -19,7 +19,7 @@ from django.urls import path, include
 from apps.home import views
 from.views import homeview, listadoview
 
-
+app_name = 'home'
 urlpatterns = [ 
     path('', homeview.as_view(), name='home'),
     path('listado/', listadoview.as_view(), name='listado')
