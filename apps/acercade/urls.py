@@ -16,11 +16,11 @@ Including another URLconf
 """
 from django.contrib import admin
 from django.urls import path, include
+from apps.acercade import views
+from.views import acercadeView
 
-urlpatterns = [
-    path('admin/', admin.site.urls),
-    path('home/', include('apps.home.urls', 'home')),
-    path('estudiantes/', include('apps.estudiantes.urls', 'estudiantes')),
-    path('administradores/', include('apps.administradores.urls', 'administradores')),
-    path('acercade/', include('apps.acercade.urls', 'acercade')),
+app_name = 'acercade'
+urlpatterns = [ 
+    path('', acercadeView.as_view(), name='acercade' ), 
+    
 ]
