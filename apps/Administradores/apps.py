@@ -1,6 +1,6 @@
 from django.apps import AppConfig
 
 
-class AdministradoresConfig(AppConfig):
+class administradoresConfig(AppConfig):
     default_auto_field = 'django.db.models.BigAutoField'
-    name = 'apps.Administradores'
+    name = 'apps.administradores'

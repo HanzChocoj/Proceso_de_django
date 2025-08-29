@@ -1,9 +1,9 @@
 from django.apps import AppConfig
 
 
-class AcercaDeConfig(AppConfig):
+class acercaDeConfig(AppConfig):
     default_auto_field = 'django.db.models.BigAutoField'
-    name = 'apps.Acerca_de'
+    name = 'apps.acerca_de'
 
 
 
