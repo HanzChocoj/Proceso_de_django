@@ -4,7 +4,7 @@ from django.views.generic import TemplateView
 class homeview(TemplateView):
     template_name = 'home.html'
 
-class listadoview(TemplateView):
-    template_name = 'listado.html'    
-# Create your views here.
+class estudiantesView(TemplateView):
+    template_name = 'estudiantes.html'    
+# Create your views here.  
 
