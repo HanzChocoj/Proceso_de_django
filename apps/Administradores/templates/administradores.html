@@ -1,13 +1,11 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>administradores</title>
-</head>
-<body>
-    
-    <h1>Lista de Administradores</h1>
+{% extends 'base.html' %}
+{%block titulo %}
+<h1>Lista de Administradores</h1>
+{% endblock %}
+
+{% block contenido %}
+
+ 
 
     <table>
         <tr>
@@ -28,5 +26,4 @@
         </tr>
     </table>
    <a href="{% url 'home:home'%}">home</a> 
-</body>
-</html>
+{% endblock %}
