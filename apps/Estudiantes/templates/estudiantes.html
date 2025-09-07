@@ -1,29 +1,22 @@
 {% extends 'base.html' %}
 
-{%block titulo %}
- <h1>Lista de Estudiantes</h1>
-{% endblock %}
+{% block titulo %}Lista de Estudiantes{% endblock %}
 
 {% block contenido %}
-    
-    
-    <table>
-        <tr>
-            <th>Nombre</th>
-            <th>Apellido</th>
-        </tr>
-        <tr>
-            <td>Juan</td>
-            <td>Perez</td>
-        </tr>
-        <tr>
-            <td>Maria</td>
-            <td>Gomez</td>
-        </tr>
-        <tr>
-            <td>Carlos</td>
-            <td>Lopez</td>
-        </tr>
+<div class="container mt-5">
+    <h2 class="text-center mb-4">Estudiantes</h2>
+    <table class="table table-bordered table-striped">
+        <thead class="table-dark">
+            <tr>
+                <th>Nombre</th>
+                <th>Apellido</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr><td>Juan</td><td>Perez</td></tr>
+            <tr><td>Maria</td><td>Gomez</td></tr>
+            <tr><td>Carlos</td><td>Lopez</td></tr>
+        </tbody>
     </table>
-    <a href="{% url 'home:home'%}">home</a>
+</div>
 {% endblock %}

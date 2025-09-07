@@ -1,13 +1,11 @@
 {% extends 'base.html' %}
 
-{%block titulo %}
-<h1>Pagina Principal</h1>  
-{% endblock %}
+{% block titulo %}Página Principal{% endblock %}
 
 {% block contenido %}
-    
-    <a href="{% url 'home:home'%}">home |</a>
-    <a href="{% url 'estudiantes:estudiantes'%}">estudiantes |</a>
-    <a href="{% url 'administradores:administradores'%}">administradores |</a>
-    <a href="{% url 'acercade:acercade'%}">acercade</a>
+    <div class="container mt-5">
+        
+        <h2>Bienvenido al sistema</h2>
+        <p>Selecciona una opción del menú de arriba.</p>
+    </div>
 {% endblock %}

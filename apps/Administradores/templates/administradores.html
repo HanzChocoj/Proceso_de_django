@@ -1,29 +1,22 @@
 {% extends 'base.html' %}
-{%block titulo %}
-<h1>Lista de Administradores</h1>
-{% endblock %}
+
+{% block titulo %}Lista de Administradores{% endblock %}
 
 {% block contenido %}
-
- 
-
-    <table>
-        <tr>
-            <th>Nombre</th>
-            <th>Apellido</th>
-        </tr>
-        <tr>
-            <td>David</td>
-            <td>Perez</td>
-        </tr>
-        <tr>
-            <td>Andrea</td>
-            <td>Gomez</td>
-        </tr>
-        <tr>
-            <td>Juan</td>
-            <td>Hernandez</td>
-        </tr>
+<div class="container mt-5">
+    <h2 class="text-center mb-4">Administradores</h2>
+    <table class="table table-bordered table-striped">
+        <thead class="table-dark">
+            <tr>
+                <th>Nombre</th>
+                <th>Apellido</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr><td>Ana</td><td>Martínez</td></tr>
+            <tr><td>Luis</td><td>Ramírez</td></tr>
+            <tr><td>Sofía</td><td>Hernández</td></tr>
+        </tbody>
     </table>
-   <a href="{% url 'home:home'%}">home</a> 
+</div>
 {% endblock %}
