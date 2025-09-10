@@ -23,7 +23,8 @@
                 <td>{{ p.publisher }}</td>
                 <td>{{ p.autorizado_por|default:"-" }}</td>
                 <td>{{ p.published_at }}</td>
-                <td>{{ p.published }}</td>
+                <td>{% if p.published %}Sí{% else %}No{% endif %}</td>
+
             </tr>
             {% empty %}
             <tr><td colspan="6">No hay publicaciones.</td></tr>
