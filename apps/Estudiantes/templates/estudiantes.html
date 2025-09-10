@@ -1,5 +1,4 @@
 {% extends 'base.html' %}
-
 {% block titulo %}Lista de Estudiantes{% endblock %}
 
 {% block contenido %}
@@ -10,13 +9,23 @@
             <tr>
                 <th>Nombre</th>
                 <th>Apellido</th>
+                <th>Email</th>
+                <th>Matrícula</th>
             </tr>
         </thead>
         <tbody>
-            <tr><td>Juan</td><td>Perez</td></tr>
-            <tr><td>Maria</td><td>Gomez</td></tr>
-            <tr><td>Carlos</td><td>Lopez</td></tr>
+            {% for e in estudiantes %}
+            <tr>
+                <td>{{ e.first_name }}</td>
+                <td>{{ e.last_name }}</td>
+                <td>{{ e.email }}</td>
+                <td>{{ e.matricula|default:"-" }}</td>
+            </tr>
+            {% empty %}
+            <tr><td colspan="4">No hay estudiantes registrados.</td></tr>
+            {% endfor %}
         </tbody>
     </table>
 </div>
 {% endblock %}
+

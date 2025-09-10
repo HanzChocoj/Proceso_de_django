@@ -1,5 +1,4 @@
 {% extends 'base.html' %}
-
 {% block titulo %}Lista de Administradores{% endblock %}
 
 {% block contenido %}
@@ -10,12 +9,21 @@
             <tr>
                 <th>Nombre</th>
                 <th>Apellido</th>
+                <th>Email</th>
+                <th>Matrícula</th>
             </tr>
         </thead>
         <tbody>
-            <tr><td>Ana</td><td>Martínez</td></tr>
-            <tr><td>Luis</td><td>Ramírez</td></tr>
-            <tr><td>Sofía</td><td>Hernández</td></tr>
+            {% for a in administradores %}
+            <tr>
+                <td>{{ a.first_name }}</td>
+                <td>{{ a.last_name }}</td>
+                <td>{{ a.email }}</td>
+                <td>{{ a.matricula|default:"-" }}</td>
+            </tr>
+            {% empty %}
+            <tr><td colspan="4">No hay autorizadores registrados.</td></tr>
+            {% endfor %}
         </tbody>
     </table>
 </div>
