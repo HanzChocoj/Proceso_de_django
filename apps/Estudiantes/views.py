@@ -1,11 +1,15 @@
-from django.views.generic import ListView
+from django.views.generic import ListView, CreateView
+from django.urls import reverse_lazy
 from .models import Student
+from .forms import StudentForm
 
 class estudiantesView(ListView):
     model = Student
-    template_name = 'estudiantes.html'
+    template_name = 'estudiantes_list.html'
     context_object_name = 'estudiantes'
 
-    def get_queryset(self):
-        # Mostrar sólo estudiantes que son publicantes
-        return Student.objects.filter(role=Student.ROLE_PUBLISHER).order_by('last_name', 'first_name')
+class StudentCreateView(CreateView):
+    model = Student
+    form_class = StudentForm
+    template_name = 'estudiantes_form.html'
+    success_url = reverse_lazy('estudiantes:estudiantes')

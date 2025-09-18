@@ -1,7 +1,4 @@
 from django.db import models
-
-# Create your models here.
-from django.db import models
 from django.core.exceptions import ValidationError
 from django.utils.text import slugify
 from apps.estudiantes.models import Student
@@ -59,3 +56,28 @@ class Publication(models.Model):
 
     def __str__(self):
         return self.title
+
+
+# Modelo Comentarios para publicaciones
+class Comment(models.Model):
+    publication = models.ForeignKey(
+        Publication,
+        on_delete=models.CASCADE,
+        related_name='comments',
+        verbose_name='Publicación'
+    )
+    student = models.ForeignKey(
+        Student,
+        on_delete=models.CASCADE,
+        verbose_name='Estudiante'
+    )
+    content = models.TextField('Comentario')
+    created_at = models.DateTimeField(auto_now_add=True)
+
+    class Meta:
+        verbose_name = 'Comentario'
+        verbose_name_plural = 'Comentarios'
+        ordering = ['-created_at']
+
+    def __str__(self):
+        return f"Comentario de {self.student} en {self.publication.title}"

@@ -1,11 +1,17 @@
-from django.views.generic import ListView
-from apps.estudiantes.models import Student
+from django.views.generic import ListView, CreateView
+from django.urls import reverse_lazy
+from .models import Administrador
+from .forms import AdministradorForm
 
+# Lista de administradores
 class administradoresView(ListView):
-    model = Student
-    template_name = 'administradores.html'
+    model = Administrador
+    template_name = 'administradores_list.html'  # apunta directamente al template
     context_object_name = 'administradores'
 
-    def get_queryset(self):
-        # Mostrar sólo estudiantes que son autorizadores
-        return Student.objects.filter(role=Student.ROLE_AUTHORIZER).order_by('last_name', 'first_name')
+# Crear administrador
+class AdministradorCreateView(CreateView):
+    model = Administrador
+    form_class = AdministradorForm
+    template_name = 'administradores_form.html'  # apunta directamente al template
+    success_url = reverse_lazy('administradores:administradores')  # nombre de la URL que lista administradores
