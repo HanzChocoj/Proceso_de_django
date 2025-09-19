@@ -11,7 +11,6 @@ class Publication(models.Model):
     published = models.BooleanField('Publicado', default=False)
     published_at = models.DateTimeField('Fecha de publicación', auto_now_add=True)
 
-    # FK al estudiante que publica (rol must be 'P')
     publisher = models.ForeignKey(
         Student,
         on_delete=models.CASCADE,
@@ -19,7 +18,7 @@ class Publication(models.Model):
         limit_choices_to={'role': Student.ROLE_PUBLISHER},
         verbose_name='Publicado por'
     )
-    # FK al estudiante que autoriza (rol must be 'A')
+   
     autorizado_por = models.ForeignKey(
         Student,
         on_delete=models.SET_NULL,
@@ -36,12 +35,12 @@ class Publication(models.Model):
         ordering = ['-published_at']
 
     def clean(self):
-        # Validación: publicador y autorizador no pueden ser la misma persona
+        
         if self.publisher and self.autorizado_por and self.publisher == self.autorizado_por:
             raise ValidationError('El publicador y el autorizador deben ser personas distintas.')
 
     def save(self, *args, **kwargs):
-        # Genera slug único automáticamente si no existe
+        
         if not self.slug and self.title:
             base = slugify(self.title)[:200]
             slug = base

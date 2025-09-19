@@ -1,8 +1,5 @@
 from django.db import models
 
-# Create your models here.
-from django.db import models
-
 class Student(models.Model):
     ROLE_PUBLISHER = 'P'
     ROLE_AUTHORIZER = 'A'

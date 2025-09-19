@@ -3,20 +3,20 @@ from django.urls import reverse_lazy
 from .models import Publication, Comment
 from .forms import PublicationForm, CommentForm
 
-# Lista de publicaciones
+
 class publicacionesListView(ListView):
     model = Publication
     template_name = 'publicaciones_list.html'
     context_object_name = 'publicaciones'
 
-# Crear publicación
+
 class PublicationCreateView(CreateView):
     model = Publication
     form_class = PublicationForm
     template_name = 'publicaciones_form.html'
     success_url = reverse_lazy('publicaciones:lista')
 
-# Crear comentario
+
 class CommentCreateView(CreateView):
     model = Comment
     form_class = CommentForm

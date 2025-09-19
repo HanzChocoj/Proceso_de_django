@@ -6,5 +6,4 @@ class homeview(TemplateView):
 
 class estudiantesView(TemplateView):
     template_name = 'estudiantes.html'    
-# Create your views here.  
 

@@ -4,8 +4,8 @@ from .views import publicacionesListView, PublicationCreateView, CommentCreateVi
 app_name = 'publicaciones'
 
 urlpatterns = [
-    path('', publicacionesListView.as_view(), name='lista'),  # lista de publicaciones
-    path('agregar/', PublicationCreateView.as_view(), name='agregar'),  # crear publicación
-    path('comentario/agregar/', CommentCreateView.as_view(), name='agregar_comentario'),  # crear comentario
+    path('', publicacionesListView.as_view(), name='lista'),  
+    path('agregar/', PublicationCreateView.as_view(), name='agregar'),  
+    path('comentario/agregar/', CommentCreateView.as_view(), name='agregar_comentario'),  
 ]
 

@@ -1,7 +1,12 @@
 from django import forms
-from .models import Administrador  # o el nombre correcto de tu modelo
+from django.contrib.auth.models import User
 
 class AdministradorForm(forms.ModelForm):
     class Meta:
-        model = Administrador  # debe coincidir con tu modelo exacto
-        fields = ['first_name', 'last_name', 'email']  # o los campos que tenga tu modelo
+        model = User
+        fields = ['first_name', 'last_name', 'email']
+        labels = {
+            'first_name': 'Nombre',
+            'last_name': 'Apellido',
+            'email': 'Correo electrónico',
+        }
